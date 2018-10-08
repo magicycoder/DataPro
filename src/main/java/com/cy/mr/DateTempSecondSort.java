@@ -49,11 +49,14 @@ public class DateTempSecondSort {
             String yearMonth = tokens[0] + tokens[1];
             String day = tokens[2];
             int temperature = Integer.parseInt(tokens[3]);
+
             outKey.setYearMonth(yearMonth);
             outKey.setDay(day);
             outKey.setTemperature(temperature);
             outVal.set(temperature);
+            System.out.println("===>" + yearMonth + temperature);
             context.write(outKey, outVal);
+            System.out.println("===>" + yearMonth + temperature);
         }
     }
 
@@ -92,7 +95,7 @@ public class DateTempSecondSort {
         FileSystem fs = outPath.getFileSystem(conf);
         //FileSystem fs = FileSystem.get(conf);
         if (fs.exists(outPath)) {
-            fs.delete(outPath);
+            fs.delete(outPath,true);
         }
 
         Job job = new Job(conf, "DateTempSecondSort");
