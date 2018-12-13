@@ -1,6 +1,6 @@
 package com.cy.streaming
 
-import com.cy.Utils.DateUtils
+import com.cy.utils.DateUtils
 import com.cy.dao.{CourseClickCountDAO, CourseSearchClickCountDAO}
 import com.cy.domain.{ClickLog, CourseClickCount, CourseSearchClickCount}
 import kafka.serializer.StringDecoder
